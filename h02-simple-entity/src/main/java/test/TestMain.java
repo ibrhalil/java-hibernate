@@ -2,6 +2,8 @@ package test;
 
 import entity.Person;
 import hibernate.HibernateUtil;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -10,6 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TestMain {
+
+    private static final Logger LOGGER = LogManager.getLogger(TestMain.class);
+    private static Session session = HibernateUtil.getSessionFactory().openSession();
+
     public static void main(String[] args) {
 
 
@@ -25,43 +31,57 @@ public class TestMain {
         save(person);
 
         Person newPerson = getPersonById(10L);
-        System.out.println(newPerson.toString());
+        LOGGER.debug(newPerson.toString());
 
         newPerson.setAbout("booooosss");
         newPerson.setName("Hakan");
         newPerson.setLastName("Kara");
 
         Person updatePerson =  update(newPerson);
-        System.out.println(updatePerson.toString());
+        LOGGER.debug(updatePerson.toString());
 
+
+        delete(updatePerson);
+        Person deletePerson = getPersonById(10L);
+        LOGGER.debug(deletePerson != null ? deletePerson.toString() : "null");
+
+
+
+
+        HibernateUtil.closeSession();
+    }
+
+    private static void delete(Person updatePerson) {
+        Transaction transaction = session.getTransaction();
+        transaction.begin();
+
+        session.delete(updatePerson);
+
+        transaction.commit();
     }
 
     private static void save (Person person) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.getTransaction();
         transaction.begin();
 
         session.persist(person);
 
         transaction.commit();
-        session.close();
     }
 
     private static Person update(Person person) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.getTransaction();
         transaction.begin();
 
         Person newPerson = (Person) session.merge(person);
 
         transaction.commit();
-        session.close();
 
         return newPerson;
     }
 
     private static Person getPersonById(Long id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+
         Person person = session.get(Person.class, id);
         return person;
     }
