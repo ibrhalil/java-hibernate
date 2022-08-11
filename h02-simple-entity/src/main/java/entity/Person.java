@@ -10,7 +10,8 @@ import java.util.Objects;
 public class Person implements Serializable {
 
     @Id
-    @Column(name = "ID", unique = true, nullable = false )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", unique = true, nullable = false, updatable = false)
     private Long personId;
 
     @Column(name = "NAME", nullable = false, length = 50)
