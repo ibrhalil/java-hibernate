@@ -10,6 +10,7 @@
     <version>0.1</version>
     <modules>
         <module>h01-start</module>
+        <module>h02-simple-entity</module>
     </modules>
 
     <properties>
