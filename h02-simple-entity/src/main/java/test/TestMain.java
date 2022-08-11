@@ -5,14 +5,22 @@ import hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TestMain {
     public static void main(String[] args) {
+
 
         Person person = new Person();
         person.setId(10L);
         person.setName("Ali");
         person.setLastName("Veli");
         person.setAge(49);
+        person.setBirthday(createBirthday("31-08-1982"));
+        person.setAbout("falan filan falan filan falan filan falan filan falan filan ");
+        person.setSalary(10000L);
 
         save(person);
 
@@ -27,5 +35,14 @@ public class TestMain {
 
         transaction.commit();
         session.close();
+    }
+
+    private static Date createBirthday(String s) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+        try {
+            return sdf.parse(s);
+        } catch (ParseException e) {
+            return new Date();
+        }
     }
 }
