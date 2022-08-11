@@ -114,4 +114,18 @@ public class Person implements Serializable {
     public int hashCode() {
         return Objects.hash(personId, name, lastName, age);
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId=" + personId +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", createDate=" + createDate +
+                ", about='" + about + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }

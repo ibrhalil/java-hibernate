@@ -24,6 +24,10 @@ public class TestMain {
 
         save(person);
 
+        Person newPerson = getPersonById(10L);
+        System.out.println(newPerson.toString());
+
+
     }
 
     private static void save (Person person) {
@@ -35,6 +39,12 @@ public class TestMain {
 
         transaction.commit();
         session.close();
+    }
+
+    private static Person getPersonById(Long id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Person person = session.get(Person.class, id);
+        return person;
     }
 
     private static Date createBirthday(String s) {
