@@ -20,7 +20,6 @@ public class TestMain {
 
 
         Person person = new Person();
-        person.setId(10L);
         person.setName("Ali");
         person.setLastName("Veli");
         person.setAge(49);
@@ -30,7 +29,7 @@ public class TestMain {
 
         save(person);
 
-        Person newPerson = getPersonById(10L);
+        Person newPerson = getPersonById(1L);//tablo bastan olustugu icin ilk kayıt 1 dir
         LOGGER.debug(newPerson.toString());
 
         newPerson.setAbout("booooosss");
