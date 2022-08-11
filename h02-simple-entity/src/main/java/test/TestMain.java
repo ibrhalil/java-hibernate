@@ -27,6 +27,12 @@ public class TestMain {
         Person newPerson = getPersonById(10L);
         System.out.println(newPerson.toString());
 
+        newPerson.setAbout("booooosss");
+        newPerson.setName("Hakan");
+        newPerson.setLastName("Kara");
+
+        Person updatePerson =  update(newPerson);
+        System.out.println(updatePerson.toString());
 
     }
 
@@ -39,6 +45,19 @@ public class TestMain {
 
         transaction.commit();
         session.close();
+    }
+
+    private static Person update(Person person) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.getTransaction();
+        transaction.begin();
+
+        Person newPerson = (Person) session.merge(person);
+
+        transaction.commit();
+        session.close();
+
+        return newPerson;
     }
 
     private static Person getPersonById(Long id) {
