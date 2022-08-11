@@ -1,4 +1,4 @@
-package hibernate.test;
+package test;
 
 import hibernate.HibernateUtil;
 import org.apache.log4j.LogManager;
