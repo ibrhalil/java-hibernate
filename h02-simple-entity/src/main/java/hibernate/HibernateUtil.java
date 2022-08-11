@@ -6,6 +6,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
+
+    private HibernateUtil() {
+        throw new IllegalStateException("HibernateUtil: Utility class");
+    }
+
     private static final Logger LOGGER = LogManager.getLogger(HibernateUtil.class);
     private static final SessionFactory SESSION_FACTORY = buildSessionFactory();
 
@@ -24,6 +29,10 @@ public class HibernateUtil {
 
     public static SessionFactory getSessionFactory() {
         return SESSION_FACTORY;
+    }
+
+    public static void closeSession() {
+        getSessionFactory().close();
     }
 
 }
