@@ -5,7 +5,7 @@
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.EnhancedPatternLayout">
             <param name="ConversionPattern"
-                   value="%d{dd MMM yyyy HH:mm:ss,SSS} - %p - %x - %C{1.}.%M(%L) | %m%n" />
+                   value="%d{dd MMM yyyy HH:mm:ss,SSS} - %p - %C(%L) | %m%n" />
         </layout>
     </appender>
 
@@ -14,7 +14,7 @@
     </logger>
 
     <root>
-        <level value="INFO" />
+        <level value="DEBUG" />
         <appender-ref ref="CONSOLE" />
     </root>
 </log4j:configuration>
