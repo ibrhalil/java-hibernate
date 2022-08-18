@@ -13,10 +13,6 @@ import javax.persistence.Embeddable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@AttributeOverrides({
-        @AttributeOverride( name = "phone", column = @Column(name = "CONTACT_PHONE")),
-        @AttributeOverride( name = "eMail", column = @Column(name = "CONTACT_EMAIL")),
-})
 public class Contact {
     private String phone;
     private String eMail;

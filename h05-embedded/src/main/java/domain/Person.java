@@ -22,5 +22,9 @@ public class Person implements Serializable {
     private String lastName;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "phone", column = @Column(name = "CONTACT_PHONE")),
+            @AttributeOverride( name = "eMail", column = @Column(name = "CONTACT_EMAIL")),
+    })
     private Contact contact;
 }
