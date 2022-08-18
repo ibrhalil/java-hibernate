@@ -11,6 +11,7 @@
     <modules>
         <module>h01-start</module>
         <module>h02-simple-entity</module>
+        <module>h03-lombok</module>
     </modules>
 
     <properties>
