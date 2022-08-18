@@ -13,6 +13,7 @@
         <module>h02-simple-entity</module>
         <module>h03-lombok</module>
         <module>h04-embedded</module>
+        <module>h05-embedded</module>
     </modules>
 
     <properties>
