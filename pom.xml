@@ -8,11 +8,15 @@
     <artifactId>hibernate</artifactId>
     <packaging>pom</packaging>
     <version>0.1</version>
+
     <modules>
         <module>h01-start</module>
         <module>h02-simple-entity</module>
         <module>h03-lombok</module>
         <module>h04-embedded</module>
+        <module>h05-embedded</module>
+        <module>h06-embedded</module>
+        <module>h07-composite-primary-key</module>
     </modules>
 
     <properties>
