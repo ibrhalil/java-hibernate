@@ -17,6 +17,7 @@
         <module>h05-embedded</module>
         <module>h06-embedded</module>
         <module>h07-composite-primary-key</module>
+        <module>h00-note</module>
     </modules>
 
     <properties>
