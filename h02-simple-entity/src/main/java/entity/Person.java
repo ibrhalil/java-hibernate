@@ -23,6 +23,10 @@ public class Person implements Serializable {
     @Column(name = "AGE")
     private Integer age;
 
+    @Column(name = "SEX")
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
     @Temporal(TemporalType.DATE)
     private Date birthday;
 
@@ -40,11 +44,16 @@ public class Person implements Serializable {
 
     }
 
-    public Person(Long id, String name, String lastName, Integer age) {
-        this.personId = id;
+    public Person(Long personId, String name, String lastName, Integer age, Gender gender, Date birthday, Date createDate, String about, Long salary) {
+        this.personId = personId;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.createDate = createDate;
+        this.about = about;
+        this.salary = salary;
     }
 
     public Long getId() {
@@ -77,6 +86,14 @@ public class Person implements Serializable {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public Date getBirthday() {
@@ -123,6 +140,7 @@ public class Person implements Serializable {
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
+                ", gender=" + gender +
                 ", birthday=" + birthday +
                 ", createDate=" + createDate +
                 ", about='" + about + '\'' +
