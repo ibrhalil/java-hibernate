@@ -19,6 +19,7 @@
         <module>h07-composite-primary-key</module>
         <module>h00-note</module>
         <module>h08-element-collection</module>
+        <module>h09-element-collection-object</module>
     </modules>
 
     <properties>
