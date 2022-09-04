@@ -1,5 +1,6 @@
 package test;
 
+import entity.Gender;
 import entity.Person;
 import hibernate.HibernateUtil;
 import org.apache.log4j.LogManager;
@@ -23,6 +24,7 @@ public class TestMain {
         person.setName("Ali");
         person.setLastName("Veli");
         person.setAge(49);
+        person.setGender(Gender.MALE);
         person.setBirthday(createBirthday("31-08-1982"));
         person.setAbout("falan filan falan filan falan filan falan filan falan filan ");
         person.setSalary(10000L);
@@ -32,7 +34,7 @@ public class TestMain {
         Person newPerson = getPersonById(1L);//tablo bastan olustugu icin ilk kayıt 1 dir
         LOGGER.debug(newPerson.toString());
 
-        newPerson.setAbout("booooosss");
+        /*newPerson.setAbout("booooosss");
         newPerson.setName("Hakan");
         newPerson.setLastName("Kara");
 
@@ -42,7 +44,7 @@ public class TestMain {
 
         delete(updatePerson);
         Person deletePerson = getPersonById(10L);
-        LOGGER.debug(deletePerson != null ? deletePerson.toString() : "null");
+        LOGGER.debug(deletePerson != null ? deletePerson.toString() : "null");*/
 
 
 

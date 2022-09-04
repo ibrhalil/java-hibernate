@@ -17,6 +17,10 @@
         <module>h05-embedded</module>
         <module>h06-embedded</module>
         <module>h07-composite-primary-key</module>
+        <module>h00-note</module>
+        <module>h08-element-collection</module>
+        <module>h09-element-collection-object</module>
+        <module>h10-element-collection-map</module>
     </modules>
 
     <properties>
