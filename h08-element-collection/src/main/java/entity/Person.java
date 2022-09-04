@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -27,8 +24,12 @@ public class Person implements Serializable {
     private String lastName;
 
     @ElementCollection
+    @CollectionTable(name = "T_PERSON_PHONE_NUM", joinColumns = @JoinColumn(name = "PERSON_ID"))
+    @Column(name = "P_NUMBER", length = 11)
     private List<String> phoneNumbers;
 
     @ElementCollection
+    @CollectionTable(name = "T_PERSON_EMAIL", joinColumns = @JoinColumn(name = "PERSON_ID"))
+    @Column(name = "EMAIL", unique = true)
     private Set<String> emails;
 }
